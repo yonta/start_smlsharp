@@ -1,6 +1,6 @@
 CC=gcc
-SMLSHARP=smlsharp-0.90
-SMLSHARP_LIB=/home/kei/hg/smlsharp-0.90/smlsharp/SMLSharp/local/lib/smlsharp/
+SMLSHARP=smlsharp
+SMLSHARP_LIB=/usr/local/lib/smlsharp
 TARGETS=hello
 
 .PHONY : all clean
