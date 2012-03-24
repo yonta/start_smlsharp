@@ -1,6 +1,8 @@
 (* (* (* COMMENT *) *) *)
+
 (* Expression *)
 val () = print "Expression\n";
+
 (* int *)
 1;
 (* real *)
@@ -57,6 +59,7 @@ case (1,2) of
 
 (* Declaration *)
 val () = print "Declaration"
+
 (* val *)
 val nl = "\n"
 (* fun *)
@@ -66,10 +69,12 @@ fun newline s = s ^ nl
  *   ※代入ではない
  *)
 val nl = " "
+
 (* recursive function *)
 fun fib 0 = 1
   | fib 1 = 1
   | fib n = fib (n-1) + fib (n-2)
+
 (* let : let DECS in EXP end *)
 fun fib n =
     let
@@ -78,9 +83,11 @@ fun fib n =
     in
       fibTailRec (0, 1, n)
     end
+
 (* higher order function *)
 fun curry f x y = f (x,y)
 fun uncurry f (x,y) = f x y
+
 (* infix *)
 infix 0 +> +$
 fun f +> g = g o f
