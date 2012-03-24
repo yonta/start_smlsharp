@@ -29,15 +29,18 @@ if true orelse false andalso false then "True" else "False";
 fn x => x mod 2;
 (* application *)
 it 15;
+
 (* tuple *)
 (1,0w15);
 (* tuple selector *)
 #1 it;
+
 (* record *)
 {name = "miku", age = 16};
 {1 = #"a", 2 = ()};
 (* record selector *)
 #age;
+
 (* constructor *)
 datatype 'a tree =
          LEAF
