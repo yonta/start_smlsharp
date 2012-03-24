@@ -89,6 +89,7 @@ fun curry f x y = f (x,y)
 fun uncurry f (x,y) = f x y
 
 (* infix *)
-infix 0 +> +$
-fun f +> g = g o f
-fun (f +$ g) x = f (g x)
+infix 0 <| |> <<
+fun f <| x = f x
+fun f |> g = g o f
+fun f << g = f o g
