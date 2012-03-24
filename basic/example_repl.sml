@@ -42,14 +42,14 @@ it 15;
 #age;
 
 (* constructor *)
-datatype 'a tree =
-         LEAF
-       | NODE of 'a tree * 'a tree * 'a;
-NODE (LEAF, LEAF, 3);
+datatype 'a mylist =
+         NIL
+       | CONS of 'a * 'a mylist;
+CONS (1, CONS (2, NIL));
 (* case *)
 case it of
-  LEAF => 0
-| NODE (_, _, x) => x;
+  NIL => false
+| CONS _ => true;
 case (1,2) of
   (0,0) => "ZEROS"
 | (1,_) => "ONE"
