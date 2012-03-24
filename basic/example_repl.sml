@@ -78,3 +78,10 @@ fun fib n =
     in
       fibTailRec (0, 1, n)
     end
+(* higher order function *)
+fun curry f x y = f (x,y)
+fun uncurry f (x,y) = f x y
+(* infix *)
+infix 0 +> +$
+fun f +> g = g o f
+fun (f +$ g) x = f (g x)
