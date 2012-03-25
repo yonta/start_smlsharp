@@ -87,6 +87,15 @@ fun fib n =
 (* higher order function *)
 fun curry f x y = f (x,y)
 fun uncurry f (x,y) = f x y
+fun fact 0 = 1
+  | fact n = n * fact (n-1)
+fun factImpl (0, m) = m
+  | factImpl (n, m) = fact' (n-1, m*n)
+fun fact' n = factImpl (n, 1)
+fun power m 0 = 1
+  | power m n = m * power m (n-1)
+fun siguma f 0 = 0
+  | siguma f n = f n + siguma f (n-1)
 
 (* infix *)
 infix 0 <| |> <<
