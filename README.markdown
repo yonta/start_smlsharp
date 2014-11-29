@@ -17,6 +17,7 @@
 val x = 1
 fun add x y = x + y
 fun mul 0 _ = 0
+  | mul _ 0 = 0
   | mul x y = x * y
 ```
 
