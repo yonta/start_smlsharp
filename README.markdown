@@ -17,7 +17,7 @@
 val x = 1
 fun add x y = x + y
 fun mul 0 _ = 0
-| mul x y = x * y
+  | mul x y = x * y
 ```
 
 * コメント
@@ -90,10 +90,10 @@ val int = valOf some
 datatype mytype = A | B of int | C
 (* 分解、パターンマッチ *)
 val a =
-case B 1 of
-A => 0
-| B n => n
-| _ => ~1
+    case B 1 of
+        A => 0
+      | B n => n
+      | _ => ~1
 ```
 
 * スコープ
@@ -102,13 +102,13 @@ A => 0
   * endが必要な理由はでこにゃんに聞け
 ```sml
 val x =
-let
-val x = 1
-in
-x + 1
-end
+    let
+      val x = 1
+    in
+      x + 1
+    end
 local
-val a = 2
+  val a = 2
 in
 fun f x = x + a
 end
@@ -118,10 +118,10 @@ end
 ```sml
 (* 構成 *)
 exception Error of string
-raise Error "Missed"
+val _ = raise Error "Missed"
 (* 分解 *)
 raise Error "Missed"
-handle e message => ()
+          handle e message => ()
 ```
 
 * モジュール
@@ -132,20 +132,25 @@ handle e message => ()
 (* 構成 *)
 signature MY_SIG =
 sig
-type t
-val zero : () -> t
-val succ : t -> t
+  type t
+  val zero : () -> t
+  val succ : t -> t
 end
+
 structure MyModule : MY_SIG =
 struct
-type t = int
-fun zero () = 0
-fun succ t = t + 1
+  type t = int
+  fun zero () = 0
+  fun succ t = t + 1
 end
+
 (* 分解 *)
 val t = MyModule.zero()
-open MyModule
+local
+  open MyModule
+in
 val t = succ t
+end
 ```
 
 * 既存ライブラリ
@@ -164,8 +169,8 @@ open List
 (* 構成 *)
 functor AddSub (structure Module : MY_SIG) =
 struct
-open Module
-fun sub (x : t) = x - 1
+  open Module
+  fun sub (x : t) = x - 1
 end
 (* 分解 *)
 structure NewModule = AddSub(MyModule)
